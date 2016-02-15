@@ -166,7 +166,7 @@ fi
 mkdir -p "${OUTPUT}" 2>/dev/null || { echo "Could not create output directory, sorry." ; exit 1 ; }
 
 # Do the download
-echo aria2c --checksum=sha-1=${SHA1["${RELEASE}${BETA}-${ARCH}-${DESKTOP}"]} --console-log-level notice --dir "${OUTPUT}" --continue=true --max-connection-per-server=1 --split=${#MIRRORS[@]} $(for x in ${MIRRORS[@]} ; do echo -n "http://${x}.dl.sourceforge.net/project/kororaproject/${RELEASE}/korora-${RELEASE}${BETA}-${ARCH}-${DESKTOP}${LIVE}.iso " ; done)
+aria2c --checksum=sha-1=${SHA1["${RELEASE}${BETA}-${ARCH}-${DESKTOP}"]} --console-log-level notice --dir "${OUTPUT}" --continue=true --max-connection-per-server=1 --split=${#MIRRORS[@]} $(for x in ${MIRRORS[@]} ; do echo -n "http://${x}.dl.sourceforge.net/project/kororaproject/${RELEASE}/korora-${RELEASE}${BETA}-${ARCH}-${DESKTOP}${LIVE}.iso " ; done)
 
 # Print status of download
 if [[ "$?" != 0 ]]; then
